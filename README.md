@@ -1,32 +1,32 @@
-# Online Sales Performance Analysis
+# Online Sales Data Cleaning & Preparation
 
 ## 📌 Project Overview
 
-This project analyzes an online retail sales dataset to understand sales performance, customer behavior, product performance, order outcomes, and marketing-related activity.
+This project focuses on **Data Cleaning and Preparation** of an online retail sales dataset.
 
-The project follows an end-to-end data analytics workflow:
+The objective was to review the raw transactional data, identify potential data-quality issues, standardize inconsistent fields, validate numerical information, and prepare the dataset for subsequent analysis.
 
-**Data Cleaning → Exploratory Data Analysis → KPI Development → Business Analysis → Visualization → Insights**
+This project was completed as **Project 1 of the DecodeLabs Data Analytics Internship — Batch 2026**.
 
-The work was completed using **Microsoft Excel**, with data cleaning, Pivot Tables, calculated metrics, and an interactive dashboard used to transform raw transactional data into actionable business insights.
+The workflow followed the principle:
 
-This project serves as **Project 1 (Data Cleaning & Preparation)** and **Project 2 (Exploratory Data Analysis)** of my Data Analytics internship at DecodeLabs.
+**Raw Data → Data Quality Assessment → Cleaning & Standardization → Validation → Analysis-Ready Dataset**
 
 ---
 
 ## 🎯 Project Objectives
 
-The main objectives of the project were to:
+The main objectives of this project were to:
 
-* Clean and prepare the raw sales dataset for analysis.
-* Identify and address data-quality issues.
-* Standardize dates, numerical fields, and categorical values.
-* Develop key sales and customer performance metrics.
-* Analyze sales trends across time.
-* Evaluate product and order performance.
-* Explore customer purchasing behavior.
-* Analyze coupon usage and referral sources.
-* Translate the findings into Pivot Tables, charts, and an interactive Excel dashboard.
+* Review and understand the structure of the raw dataset.
+* Identify missing or blank values.
+* Check for duplicate transaction records.
+* Standardize date fields.
+* Validate numerical fields.
+* Standardize categorical values.
+* Validate revenue calculations.
+* Create analytical date fields.
+* Prepare a consistent dataset for further analysis.
 
 ---
 
@@ -49,341 +49,219 @@ Key fields include:
 * `ReferralSource`
 * `Revenue`
 
-The dataset was structured around individual sales transactions, allowing analysis at the order, customer, product, and marketing-channel levels.
+The transactional structure of the dataset makes it suitable for subsequent analysis of sales performance, products, customers, order outcomes, and marketing activity.
 
 ---
 
-# 🧹 Project 1 — Data Cleaning & Preparation
+# 🧹 Data Cleaning Process
 
-Before performing the analysis, the dataset was reviewed and prepared to ensure that the results would be based on consistent and reliable data.
+## 1. Reviewed the Raw Dataset Structure
 
-### 1. Dataset Structure Review
+The raw dataset was first examined to understand:
 
-The raw dataset was examined to understand:
-
-* Transaction structure
+* The transaction structure
 * Available fields
 * Customer and product information
-* Date coverage
+* Date fields
 * Sales and revenue fields
 * Operational and marketing fields
 
-The fields required for the subsequent sales, product, customer, order-status, coupon, and referral-source analyses were identified.
+This helped determine which fields required validation and preparation before analysis.
 
-### 2. Missing Value Checks
+---
+
+## 2. Checked for Missing Values
 
 The dataset was reviewed for blank and missing entries.
 
-Fields where missing values could affect calculations, categorization, or analysis were identified and reviewed during the cleaning process.
+Fields where missing values could affect calculations, categorization, or subsequent analysis were identified and reviewed.
 
-### 3. Duplicate Checks
+This step helped ensure that incomplete records would not unintentionally affect analytical results.
 
-Transaction and order records were checked for duplicate entries.
+---
 
-This was important to prevent duplicate records from distorting:
+## 3. Checked for Duplicate Records
+
+Transaction and order records were reviewed for duplicate entries.
+
+The purpose was to prevent duplicated transactions from affecting:
 
 * Order counts
 * Revenue calculations
 * Customer analysis
-* Product performance results
+* Product analysis
 
-### 4. Date Standardization
+Duplicate checks were therefore treated as an important part of validating the integrity of the dataset.
 
-Date fields were standardized into a consistent format.
+---
 
-Additional **Month** and **Year** classifications were created to support time-based sales analysis.
+## 4. Standardized Date Fields
 
-### 5. Numeric Field Validation
+The date field was reviewed and standardized into a consistent date format.
 
-Numerical fields such as:
+Additional analytical fields were created for:
+
+* **Month**
+* **Year**
+
+These fields were prepared to support the sales-trend analysis that would follow during the exploratory analysis stage.
+
+---
+
+## 5. Validated Numeric Fields
+
+Numerical fields were reviewed for consistency and appropriate formatting.
+
+The main fields included:
 
 * `Quantity`
 * `UnitPrice`
 * Revenue / transaction value
 
-were reviewed to ensure that they were stored and formatted appropriately for calculations and Pivot Table analysis.
+The objective was to ensure that numerical values could be reliably used in calculations and Pivot Tables.
 
-### 6. Categorical Data Standardization
+---
 
-Categorical fields were reviewed and standardized to ensure that inconsistent values would not be treated as separate categories during analysis.
+## 6. Standardized Categorical Fields
+
+Categorical fields were reviewed for inconsistent values that could cause the same category to appear as multiple groups during analysis.
 
 The fields reviewed included:
 
-* Product
-* Payment Method
-* Order Status
-* Coupon Code
-* Referral Source
+* `Product`
+* `PaymentMethod`
+* `OrderStatus`
+* `CouponCode`
+* `ReferralSource`
 
-### 7. Revenue Validation
-
-The relationship between **Quantity × UnitPrice** and the transaction/revenue values was checked.
-
-This validation was important because revenue was used throughout the KPI and product-performance analysis.
-
-### 8. Dataset Preparation
-
-After cleaning and validation, the dataset was maintained in a consistent tabular structure suitable for Pivot Tables and further analysis.
-
-Derived fields such as Month and Year were also prepared for subsequent analysis.
+Standardizing these fields helped ensure that future Pivot Table analysis would group categories correctly.
 
 ---
 
-# 🔎 Project 2 — Exploratory Data Analysis
+## 7. Validated Revenue Calculations
 
-Following the cleaning process, Exploratory Data Analysis (EDA) was performed to identify patterns, trends, and performance differences within the sales data.
+The relationship between **Quantity × UnitPrice** and the transaction/revenue values was reviewed.
 
-## 1. Overall Sales Performance
+This validation was important because revenue would later be used for:
 
-Core KPIs were developed to establish a baseline view of business performance.
-
-These included:
-
-* Total Revenue
-* Total Orders
-* Total Customers
-* Total Items Sold
-* Average Order Value
-* Revenue per Customer
-* Average Items per Order
-
-These metrics provided the foundation for the subsequent analysis.
-
----
-
-## 2. Sales Trend Analysis
-
-Month and Year classifications were used to investigate sales performance over time.
-
-The analysis examined:
-
-* Revenue by month
-* Revenue by year
-* Monthly sales patterns
-* Changes in performance across years
-* Potential seasonal fluctuations
-
-This helped identify **when sales were being generated** rather than relying solely on overall revenue totals.
-
----
-
-## 3. Order Status Analysis
-
-Orders were analyzed according to their status, including categories such as:
-
-* Completed / Delivered
-* Shipped
-* Pending
-* Cancelled
-* Returned
-
-The analysis was used to evaluate operational performance through metrics such as:
-
-* Completed order rate
-* Cancellation rate
-
----
-
-## 4. Product Performance Analysis
-
-Products were compared using:
-
-* Quantity sold
-* Sales volume
-* Revenue generated
-
-This analysis helped distinguish between products that generated high sales volume and products that generated high revenue.
-
-A key analytical consideration was that the product selling the most units is not necessarily the product generating the most revenue.
-
----
-
-## 5. Customer Analysis
-
-Customer purchasing behavior was explored through:
-
-* Unique customer counts
-* Customer spending
-* Revenue per customer
-* One-time versus repeat purchasing
-* Highest-spending customers
-
-The objective was to better understand customer contribution to overall sales performance and whether revenue was primarily driven by customer acquisition or retention.
-
----
-
-## 6. Coupon Performance Analysis
-
-The coupon-code field was analyzed to understand the role of promotional activity in sales performance.
-
-The analysis considered:
-
-* Coupon usage frequency
-* Revenue associated with coupon usage
-* Contribution of coupon-driven sales
-* Coupon dependency
-
----
-
-## 7. Referral Source Analysis
-
-Referral sources were compared to understand how different acquisition channels contributed to sales.
-
-Sources included channels such as:
-
-* Instagram
-* Facebook
-* Google
-* Email
-* Referral
-
-The analysis considered:
-
-* Order volume
-* Revenue
-* Average revenue per order
-
-This provided a way to compare both the volume and potential value of different acquisition channels.
-
----
-
-# 📈 Dashboard & Reporting
-
-The results of the analysis were transformed into an interactive Excel reporting layer using:
-
-* KPI cards
-* Pivot Tables
-* Pivot Charts
-* Sales trend visualizations
+* KPI calculations
 * Product performance analysis
+* Sales trend analysis
 * Customer analysis
-* Coupon analysis
-* Referral-source analysis
-* Order-status reporting
 
-The dashboard brought the different analytical areas together into a single reporting view.
+Ensuring that the underlying revenue values were reliable was therefore an important part of the preparation process.
 
 ---
 
-# 🛠️ Tools & Skills
+## 8. Prepared the Dataset for Analysis
 
-### Tools
+After completing the cleaning and validation checks, the dataset was maintained in a consistent tabular structure suitable for further analysis.
+
+Derived fields such as **Month** and **Year** were also prepared for the next stage of the project.
+
+The resulting dataset was ready to be used for **Exploratory Data Analysis (Project 2)**.
+
+---
+
+# 📋 Cleaning Summary
+
+| Cleaning Area     | Action Taken                                     | Purpose                                         |
+| ----------------- | ------------------------------------------------ | ----------------------------------------------- |
+| Missing Values    | Reviewed blank and missing fields                | Prevent incomplete data from affecting analysis |
+| Duplicates        | Checked transaction records for duplicates       | Prevent double-counting                         |
+| Dates             | Standardized date formatting                     | Ensure consistent date analysis                 |
+| Month / Year      | Created derived date fields                      | Support time-based analysis                     |
+| Numeric Fields    | Validated Quantity, UnitPrice and revenue fields | Ensure reliable calculations                    |
+| Product           | Reviewed and standardized categories             | Ensure accurate grouping                        |
+| Payment Method    | Reviewed and standardized categories             | Ensure accurate grouping                        |
+| Order Status      | Reviewed and standardized categories             | Ensure accurate order reporting                 |
+| Coupon Code       | Reviewed and standardized entries                | Support coupon analysis                         |
+| Referral Source   | Reviewed and standardized entries                | Support channel analysis                        |
+| Revenue           | Validated transaction-value calculations         | Ensure reliable revenue analysis                |
+| Dataset Structure | Maintained a consistent tabular format           | Prepare data for further analysis               |
+
+---
+
+# 🛠️ Tools Used
 
 * **Microsoft Excel**
-* Pivot Tables
-* Pivot Charts
 * Excel formulas
-* Data cleaning and preparation
-* Data visualization
-
-### Analytical Skills
-
-* Data cleaning
-* Data validation
-* Exploratory Data Analysis
-* KPI development
-* Trend analysis
-* Product analysis
-* Customer analysis
-* Operational analysis
-* Marketing/channel analysis
-* Business insight generation
-* Data storytelling
+* Data cleaning and validation
+* Data formatting
+* Pivot Table preparation
 
 ---
 
-# 🔄 Analytical Workflow
+# 🔄 Data Preparation Workflow
 
-Raw Transaction Data 
-
-        ↓ 
-Dataset Structure Review
-
+```text
+Raw Online Sales Dataset
         ↓
-Data Quality Assessment
-
+Review Dataset Structure
         ↓
-Missing Value & Duplicate Checks
-
+Check Missing Values
         ↓
-Date & Numeric Validation
-
+Check Duplicate Records
         ↓
-Categorical Standardization
-
+Standardize Dates
         ↓
-Revenue Validation
-
+Validate Numeric Fields
         ↓
-Derived Fields (Month & Year)
-
+Standardize Categorical Fields
         ↓
-KPI Development
-
+Validate Revenue
         ↓
-Exploratory Data Analysis
-
+Create Month & Year Fields
         ↓
-Sales & Product Analysis
-
+Final Data Validation
         ↓
-Customer & Order Analysis
-
-        ↓
-Coupon & Referral Analysis
-
-        ↓
-Business Insights
-
-        ↓
-Pivot Tables & Charts
-
-        ↓
-Interactive Excel Dashboard
-
+Analysis-Ready Dataset
 ```
 
 ---
 
-# 📁 Project Structure
+# 💡 Key Learning Outcomes
 
-`
-online-sales-performance-analysis/
+This project strengthened my understanding of the importance of data quality before analysis.
+
+Through the cleaning process, I practiced:
+
+* Reviewing transactional datasets systematically
+* Identifying potential data-quality issues
+* Checking for missing and duplicate records
+* Standardizing dates and categorical fields
+* Validating numerical data
+* Checking the reliability of calculated values
+* Preparing structured data for Pivot Table analysis
+
+A key takeaway from the project was that **reliable analysis depends on reliable data**. Cleaning and validation are therefore essential steps before calculating KPIs or drawing business conclusions.
+
+---
+
+# 📁 Project Files
+
+```text
+online-sales-data-cleaning/
 │
 ├── README.md
 │
 ├── data/
 │   └── cleaned_sales_data.xlsx
 │
-├── analysis/
-│   └── online_sales_analysis.xlsx
-│
 └── images/
-    ├── dashboard.png
-    ├── sales-trend-analysis.png
-    └── product-performance.png
+    └── cleaning-process.png
 ```
 
-# 💡 Key Learning Outcomes
+---
 
-This project strengthened my ability to move from raw transactional data to a structured analytical output.
+# 📌 Internship Context
 
-Key areas of learning included:
+**Program:** DecodeLabs Data Analytics Internship
+**Batch:** 2026
+**Project:** Project 1 — Data Cleaning & Preparation
+**Domain:** Data Analytics
+**Primary Tool:** Microsoft Excel
 
-* Preparing messy transactional data for analysis
-* Validating data before drawing conclusions
-* Using Pivot Tables to explore large datasets
-* Developing meaningful business KPIs
-* Analyzing sales performance from multiple perspectives
-* Connecting data patterns to business questions
-* Presenting analytical findings through an interactive dashboard
+---
 
-Most importantly, the project reinforced the principle that **good analysis starts with reliable data**.
 
-## 📌 Project Context
-
-This project was completed as part of the **DecodeLabs Data Analytics Internship — Batch 2026**.
-
-**Project 1:** Data Cleaning & Preparation
-
-**Project 2:** Exploratory Data Analysis
